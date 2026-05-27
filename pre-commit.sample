@@ -1,0 +1,130 @@
+using System.Data;
+
+namespace MobileStockCaptureApp;
+
+public partial class Form1 : Form
+{
+    private readonly DataTable tblMobilePhones = new("tblMobilePhones");
+
+    public Form1()
+    {
+        InitializeComponent();
+        BuildMobilePhoneTable();
+        dgvPhones.DataSource = tblMobilePhones;
+    }
+
+    private void BuildMobilePhoneTable()
+    {
+        tblMobilePhones.Columns.Add("MobileCode", typeof(string));
+        tblMobilePhones.Columns.Add("Make", typeof(string));
+        tblMobilePhones.Columns.Add("Quantity", typeof(int));
+        tblMobilePhones.PrimaryKey = new[] { tblMobilePhones.Columns["MobileCode"]! };
+    }
+
+    private bool ValidateCode(out string code)
+    {
+        code = txtCode.Text.Trim();
+        if (string.IsNullOrWhiteSpace(code))
+        {
+            lblOutput.Text = "Mobile Code is required";
+            txtCode.Focus();
+            return false;
+        }
+        return true;
+    }
+
+    private bool ValidateAddInputs(out string code, out string make, out int quantity)
+    {
+        code = txtCode.Text.Trim();
+        make = txtMake.Text.Trim();
+        quantity = 0;
+
+        if (string.IsNullOrWhiteSpace(code))
+        {
+            lblOutput.Text = "Mobile Code is required";
+            txtCode.Focus();
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(make))
+        {
+            lblOutput.Text = "Make is required";
+            txtMake.Focus();
+            return false;
+        }
+
+        if (!int.TryParse(txtQuantity.Text.Trim(), out quantity) || quantity < 0)
+        {
+            lblOutput.Text = "Quantity must be a valid positive number";
+            txtQuantity.Focus();
+            return false;
+        }
+
+        if (tblMobilePhones.Rows.Find(code) != null)
+        {
+            lblOutput.Text = "Record already exists";
+            txtCode.Focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    private void btnAdd_Click(object sender, EventArgs e)
+    {
+        if (!ValidateAddInputs(out string code, out string make, out int quantity))
+            return;
+
+        tblMobilePhones.Rows.Add(code, make, quantity);
+        lblOutput.Text = "Record Added";
+        ClearInputs();
+    }
+
+    private void btnDelete_Click(object sender, EventArgs e)
+    {
+        if (!ValidateCode(out string code))
+            return;
+
+        DataRow? row = tblMobilePhones.Rows.Find(code);
+        if (row == null)
+        {
+            lblOutput.Text = "Record NOT Found";
+            return;
+        }
+
+        tblMobilePhones.Rows.Remove(row);
+        lblOutput.Text = "Record Deleted";
+        ClearInputs();
+    }
+
+    private void btnFind_Click(object sender, EventArgs e)
+    {
+        if (!ValidateCode(out string code))
+            return;
+
+        DataRow? row = tblMobilePhones.Rows.Find(code);
+        if (row == null)
+        {
+            lblOutput.Text = "Record NOT Found";
+            return;
+        }
+
+        txtMake.Text = row["Make"].ToString();
+        txtQuantity.Text = row["Quantity"].ToString();
+        lblOutput.Text = "Record Found";
+    }
+
+    private void btnClear_Click(object sender, EventArgs e)
+    {
+        ClearInputs();
+        lblOutput.Text = "Ready";
+    }
+
+    private void ClearInputs()
+    {
+        txtCode.Clear();
+        txtMake.Clear();
+        txtQuantity.Clear();
+        txtCode.Focus();
+    }
+}

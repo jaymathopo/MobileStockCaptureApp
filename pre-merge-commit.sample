@@ -1,0 +1,212 @@
+namespace MobileStockCaptureApp;
+
+partial class Form1
+{
+    private System.ComponentModel.IContainer components = null!;
+    private Label lblTitle = null!;
+    private Label lblCode = null!;
+    private Label lblMake = null!;
+    private Label lblQuantity = null!;
+    private Label lblOutputCaption = null!;
+    private TextBox txtCode = null!;
+    private TextBox txtMake = null!;
+    private TextBox txtQuantity = null!;
+    private Button btnAdd = null!;
+    private Button btnDelete = null!;
+    private Button btnFind = null!;
+    private Button btnClear = null!;
+    private Label lblOutput = null!;
+    private DataGridView dgvPhones = null!;
+
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing && (components != null))
+        {
+            components.Dispose();
+        }
+        base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+        components = new System.ComponentModel.Container();
+        lblTitle = new Label();
+        lblCode = new Label();
+        lblMake = new Label();
+        lblQuantity = new Label();
+        lblOutputCaption = new Label();
+        txtCode = new TextBox();
+        txtMake = new TextBox();
+        txtQuantity = new TextBox();
+        btnAdd = new Button();
+        btnDelete = new Button();
+        btnFind = new Button();
+        btnClear = new Button();
+        lblOutput = new Label();
+        dgvPhones = new DataGridView();
+        ((System.ComponentModel.ISupportInitialize)dgvPhones).BeginInit();
+        SuspendLayout();
+        // 
+        // lblTitle
+        // 
+        lblTitle.AutoSize = true;
+        lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+        lblTitle.Location = new Point(115, 25);
+        lblTitle.Name = "lblTitle";
+        lblTitle.Size = new Size(340, 30);
+        lblTitle.TabIndex = 0;
+        lblTitle.Text = "Mobile Stock Capture Application";
+        // 
+        // lblCode
+        // 
+        lblCode.AutoSize = true;
+        lblCode.Location = new Point(50, 90);
+        lblCode.Name = "lblCode";
+        lblCode.Size = new Size(76, 15);
+        lblCode.TabIndex = 1;
+        lblCode.Text = "Mobile Code:";
+        // 
+        // lblMake
+        // 
+        lblMake.AutoSize = true;
+        lblMake.Location = new Point(50, 130);
+        lblMake.Name = "lblMake";
+        lblMake.Size = new Size(38, 15);
+        lblMake.TabIndex = 2;
+        lblMake.Text = "Make:";
+        // 
+        // lblQuantity
+        // 
+        lblQuantity.AutoSize = true;
+        lblQuantity.Location = new Point(50, 170);
+        lblQuantity.Name = "lblQuantity";
+        lblQuantity.Size = new Size(56, 15);
+        lblQuantity.TabIndex = 3;
+        lblQuantity.Text = "Quantity:";
+        // 
+        // lblOutputCaption
+        // 
+        lblOutputCaption.AutoSize = true;
+        lblOutputCaption.Location = new Point(50, 260);
+        lblOutputCaption.Name = "lblOutputCaption";
+        lblOutputCaption.Size = new Size(48, 15);
+        lblOutputCaption.TabIndex = 4;
+        lblOutputCaption.Text = "Output:";
+        // 
+        // txtCode
+        // 
+        txtCode.Location = new Point(160, 87);
+        txtCode.MaxLength = 20;
+        txtCode.Name = "txtCode";
+        txtCode.Size = new Size(220, 23);
+        txtCode.TabIndex = 0;
+        // 
+        // txtMake
+        // 
+        txtMake.Location = new Point(160, 127);
+        txtMake.MaxLength = 50;
+        txtMake.Name = "txtMake";
+        txtMake.Size = new Size(220, 23);
+        txtMake.TabIndex = 1;
+        // 
+        // txtQuantity
+        // 
+        txtQuantity.Location = new Point(160, 167);
+        txtQuantity.Name = "txtQuantity";
+        txtQuantity.Size = new Size(220, 23);
+        txtQuantity.TabIndex = 2;
+        // 
+        // btnAdd
+        // 
+        btnAdd.Location = new Point(410, 85);
+        btnAdd.Name = "btnAdd";
+        btnAdd.Size = new Size(100, 32);
+        btnAdd.TabIndex = 3;
+        btnAdd.Text = "Add";
+        btnAdd.UseVisualStyleBackColor = true;
+        btnAdd.Click += btnAdd_Click;
+        // 
+        // btnDelete
+        // 
+        btnDelete.Location = new Point(410, 125);
+        btnDelete.Name = "btnDelete";
+        btnDelete.Size = new Size(100, 32);
+        btnDelete.TabIndex = 4;
+        btnDelete.Text = "Delete";
+        btnDelete.UseVisualStyleBackColor = true;
+        btnDelete.Click += btnDelete_Click;
+        // 
+        // btnFind
+        // 
+        btnFind.Location = new Point(410, 165);
+        btnFind.Name = "btnFind";
+        btnFind.Size = new Size(100, 32);
+        btnFind.TabIndex = 5;
+        btnFind.Text = "Find";
+        btnFind.UseVisualStyleBackColor = true;
+        btnFind.Click += btnFind_Click;
+        // 
+        // btnClear
+        // 
+        btnClear.Location = new Point(410, 205);
+        btnClear.Name = "btnClear";
+        btnClear.Size = new Size(100, 32);
+        btnClear.TabIndex = 6;
+        btnClear.Text = "Clear";
+        btnClear.UseVisualStyleBackColor = true;
+        btnClear.Click += btnClear_Click;
+        // 
+        // lblOutput
+        // 
+        lblOutput.BorderStyle = BorderStyle.FixedSingle;
+        lblOutput.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+        lblOutput.Location = new Point(160, 252);
+        lblOutput.Name = "lblOutput";
+        lblOutput.Size = new Size(350, 32);
+        lblOutput.TabIndex = 13;
+        lblOutput.Text = "Ready";
+        lblOutput.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // dgvPhones
+        // 
+        dgvPhones.AllowUserToAddRows = false;
+        dgvPhones.AllowUserToDeleteRows = false;
+        dgvPhones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dgvPhones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgvPhones.Location = new Point(50, 305);
+        dgvPhones.Name = "dgvPhones";
+        dgvPhones.ReadOnly = true;
+        dgvPhones.RowTemplate.Height = 25;
+        dgvPhones.Size = new Size(510, 170);
+        dgvPhones.TabIndex = 7;
+        // 
+        // Form1
+        // 
+        AcceptButton = btnAdd;
+        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(610, 510);
+        Controls.Add(dgvPhones);
+        Controls.Add(lblOutput);
+        Controls.Add(btnClear);
+        Controls.Add(btnFind);
+        Controls.Add(btnDelete);
+        Controls.Add(btnAdd);
+        Controls.Add(txtQuantity);
+        Controls.Add(txtMake);
+        Controls.Add(txtCode);
+        Controls.Add(lblOutputCaption);
+        Controls.Add(lblQuantity);
+        Controls.Add(lblMake);
+        Controls.Add(lblCode);
+        Controls.Add(lblTitle);
+        FormBorderStyle = FormBorderStyle.FixedSingle;
+        MaximizeBox = false;
+        Name = "Form1";
+        StartPosition = FormStartPosition.CenterScreen;
+        Text = "Mobile Stock Capture";
+        ((System.ComponentModel.ISupportInitialize)dgvPhones).EndInit();
+        ResumeLayout(false);
+        PerformLayout();
+    }
+}
